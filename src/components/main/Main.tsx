@@ -5,15 +5,13 @@ import FlexCenter from '../common/FlexCenter';
 import Text from '../common/Text';
 import Button from '../common/Button';
 import Image from '../common/Image';
+import '../styles/reset.css';
+import '../styles/common.css';
 
 const StyledFlexCenter = styled(FlexCenter)`
   width: 100%;
   height: 750px;
   background-color: #fff;
-  &.main-page {
-    background-color: #ffef6b;
-    padding: 81px 0;
-  }
   &.home-map {
     background-image: url(../../assets/images/home_map.png);
     background-repeat: no-repeat;
@@ -31,10 +29,22 @@ const StyledFlexCenter = styled(FlexCenter)`
     background-color: #f9f9f9;
     height: 1000px;
   }
+  &.main-bg {
+    background-image: url(src/assets/images/main-bg3.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center bottom;
+    padding: 81px 0;
+  }
 `;
 
 const StyledFlex = styled(Flex)`
   width: 400px;
+  &.cards {
+    margin-top: 60px;
+    width: 300px;
+    position: relative;
+  }
 `;
 
 const StyledText = styled(Text)`
@@ -46,11 +56,22 @@ const StyledBtnText = styled(Text)`
   color: #333;
 `;
 
+const StyledImage = styled(Image)`
+  position: relative;
+  &.card-side {
+    z-index: 0;
+    margin: 0 -100px;
+  }
+  &.card-main {
+    z-index: 1;
+  }
+`;
+
 function Main() {
   return (
     <>
-      <StyledFlexCenter center className="main-page">
-        <StyledFlex vertical>
+      <div className="intro-main">
+        <Flex vertical justify="center" className="intro-main-content">
           <Text bold={700} size={49} height={1.4}>
             이미 모두의 은행
             <br />
@@ -66,8 +87,8 @@ function Main() {
             <br />
             당신의 모든 일이 바뀌고 있습니다.
           </StyledText>
-          <Flex>
-            <Button width={255} height={55}>
+          <Flex gap={10}>
+            <Button width={200} height={55}>
               <Image
                 src="../../assets/images/google.png"
                 width={25}
@@ -76,7 +97,7 @@ function Main() {
               />
               <StyledBtnText>Google Play</StyledBtnText>
             </Button>
-            <Button width={255} height={55}>
+            <Button width={200} height={55}>
               <Image
                 src="../../assets/images/apple.png"
                 width={25}
@@ -86,11 +107,9 @@ function Main() {
               <StyledBtnText>App Store</StyledBtnText>
             </Button>
           </Flex>
-        </StyledFlex>
-        <Flex>
-          <img className="image" src=""></img>
         </Flex>
-      </StyledFlexCenter>
+        <div className="background-line" />
+      </div>
       <StyledFlexCenter center>
         <Flex>
           <Image
@@ -336,11 +355,20 @@ function Main() {
             marginL={6}
           />
         </Button>
-        <Flex align="center" className="cards">
-          <Image src="../../assets/images/card-1.png" />
-          <Image src="../../assets/images/card-2.png" />
-          <Image src="../../assets/images/card-3.png" />
-        </Flex>
+        <StyledFlex align="center" justify="center" className="cards">
+          <StyledImage
+            src="../../assets/images/card-1.png"
+            className="card-side"
+          />
+          <StyledImage
+            src="../../assets/images/card-2.png"
+            className="card-main"
+          />
+          <StyledImage
+            src="../../assets/images/card-3.png"
+            className="card-side"
+          />
+        </StyledFlex>
       </StyledFlexCenter>
       <StyledFlexCenter center vertical className="last">
         <Text size={40} bold={700} height={1.35} align="center">
