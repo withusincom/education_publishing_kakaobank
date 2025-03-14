@@ -56,7 +56,6 @@ header {
     align-items: center;
 }
 
-/* 여기서부터 */
 .nav-box {
     position: relative;
 }
@@ -123,7 +122,6 @@ header {
     text-decoration: none;
     font-weight: 500;
 }
-/* 여기까지 수정 */
 
 button {
     cursor: pointer;
