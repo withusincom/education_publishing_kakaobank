@@ -1,0 +1,27 @@
+.footer-bar {
+  width: 1px;
+  height: 10px;
+  background-color: #d8d8d8;
+  margin: 8px 20px;
+}
+
+.footer-inner {
+  position: relative;
+  width: 1080px;
+  margin: 0 auto;
+  white-space: nowrap;
+  flex-wrap: wrap;
+}
+
+.padding {
+  padding-right: 5px;
+}
+
+.text-margin {
+  margin-top: 12px;
+  margin-bottom: 6px;
+}
+
+.text-padding {
+  padding-top: 10px;
+}
