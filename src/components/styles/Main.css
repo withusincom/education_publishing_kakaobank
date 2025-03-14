@@ -1,0 +1,39 @@
+.main-container {
+  overflow: hidden;
+}
+
+.section-divider {
+  width: 100%;
+  background-color: #fafafa;
+  height: 32px;
+}
+
+.cards {
+  margin-top: 60px;
+}
+
+.last-bar {
+  width: 100px;
+  height: 2px;
+  background-color: #000;
+  margin-top: 50px;
+  margin-bottom: 100px;
+}
+
+.last-txt {
+  margin: 14px 0;
+}
+
+.text-box {
+  width: 25%;
+  height: 210px;
+}
+
+.text-container {
+  width: 1020px;
+  margin-top: 20px;
+}
+
+.loan-img {
+  margin-bottom: 20px;
+}
