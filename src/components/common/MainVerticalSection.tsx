@@ -1,11 +1,11 @@
 import styled from 'styled-components';
-import Flex from '../common/Flex';
-import FlexCenter from '../common/FlexCenter';
-import Text from '../common/Text';
-import Button from '../common/Button';
-import Image from '../common/Image';
+import Flex from './Flex';
+import FlexCenter from './FlexCenter';
+import Text from './Text';
+import Image from './Image';
 import { ReactNode } from 'react';
 import React from 'react';
+import CustomButton from './CustomButton';
 
 const LastBar = styled.div`
   width: 100px;
@@ -27,32 +27,27 @@ const StyledTitle = styled(Text)`
   margin-bottom: 13px;
 `;
 
-const StyledFlexCenter = styled(FlexCenter)<{ bgClass?: string }>`
+const StyledFlexCenter = styled(FlexCenter)`
   width: 100%;
   height: 1000px;
-  background-color: #fff;
-  ${({ bgClass }) =>
-    bgClass === 'sky' &&
-    `
+  &.sky {
     background-color: #333b58;
     height: 740px;
     padding-top: 160px;
-  `}
-  ${({ bgClass }) =>
-    bgClass === 'last' &&
-    `
+  }
+  &.card {
+    height: 1060px;
+    background-color: #fff;
+  }
+  &.last {
     background-color: #f9f9f9;
     height: 1000px;
-  `}
-  ${({ bgClass }) =>
-    bgClass === 'card' &&
-    `
-    height: 1060px;
-  `}
+  }
 `;
 
 const StyledFlex = styled(Flex)`
   width: 400px;
+  margin-top: 63px;
 `;
 
 const StyledText = styled(Text)`
@@ -116,14 +111,14 @@ const MainVerticalSection = ({
   btnTexts = [],
   btnWidth,
   btnColor,
-  txtColor,
   bgClass,
+  txtColor,
   imgClass = [],
   additionalTitles = [],
   additionalTexts = [],
 }: MainVerticalSectionProps) => {
   return (
-    <StyledFlexCenter center vertical bgClass={bgClass}>
+    <StyledFlexCenter className={bgClass} center vertical>
       <FlexCenter vertical center>
         <Text
           color={txtColor}
@@ -140,16 +135,15 @@ const MainVerticalSection = ({
       </FlexCenter>
       <Flex gap={10}>
         {btnTexts.map((text, index) => (
-          <Button
+          <CustomButton
             key={index}
-            width={btnWidth}
-            height={50}
+            text={text}
+            txtColor={txtColor}
+            btnWidth={btnWidth}
+            height={55}
             gap={6}
             color={btnColor}
-          >
-            <Text color={txtColor}>{text}</Text>
-            <Image src="../../assets/images/home_arr.png" width={6} />
-          </Button>
+          />
         ))}
       </Flex>
       {additionalTexts?.length > 0 && <LastBar />}
