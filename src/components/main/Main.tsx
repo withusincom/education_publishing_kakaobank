@@ -5,8 +5,8 @@ import Flex from '../common/Flex';
 import Text from '../common/Text';
 import Button from '../common/Button';
 import Image from '../common/Image';
-import MainSection from './MainSection';
-import MainVerticalSection from './MainVerticalSection';
+import MainSection from '../common/MainSection';
+import MainVerticalSection from '../common/MainVerticalSection';
 
 const SectionDivider = styled.div`
   width: 100%;
@@ -175,7 +175,7 @@ function Main() {
         title="복잡한 서류 제출을 간편하게, 내가 원하는 시간에"
         description="이사 날짜가 주말이나 공휴일이어도 전월세보증금 대출을 신청할 수 있습니다."
         imgSrcs={['src/assets/images/main-loan.png']}
-        imgWidth={430}
+        imgWidth={398}
         btnTexts={[
           '마이너스 통장대출',
           '신용대출',

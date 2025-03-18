@@ -1,9 +1,9 @@
 import styled from 'styled-components';
-import Flex from '../common/Flex';
-import FlexCenter from '../common/FlexCenter';
-import Text from '../common/Text';
-import Button from '../common/Button';
-import Image from '../common/Image';
+import Flex from './Flex';
+import FlexCenter from './FlexCenter';
+import Text from './Text';
+import Image from './Image';
+import CustomButton from './CustomButton';
 import { ReactNode } from 'react';
 
 const StyledFlexCenter = styled(FlexCenter)`
@@ -14,10 +14,19 @@ const StyledFlexCenter = styled(FlexCenter)`
 
 const StyledFlex = styled(Flex)`
   width: 400px;
+  margin: 0 40px;
 `;
 
 const StyledText = styled(Text)`
   margin: 25px 0;
+`;
+
+const StyledImage = styled(Image)`
+  margin: 0 40px;
+`;
+
+const StyledAddImage = styled(Image)`
+  margin-top: 50px;
 `;
 
 interface MainSectionProps {
@@ -45,7 +54,9 @@ const MainSection = ({
 }: MainSectionProps) => {
   return (
     <StyledFlexCenter center>
-      {layout === 'left' && imgSrc && <Image src={imgSrc} width={imgWidth} />}
+      {layout === 'left' && imgSrc && (
+        <StyledImage src={imgSrc} width={imgWidth} />
+      )}
       <StyledFlex vertical>
         <Text bold={700} size={40} height={1.35}>
           {title}
@@ -55,19 +66,25 @@ const MainSection = ({
         </StyledText>
         <Flex gap={10}>
           {btnTexts.map((text, index) => (
-            <Button key={index} width={btnWidth} height={55} gap={6}>
-              <Text size={16} color="#333">
-                {text}
-              </Text>
-              <Image src="../../assets/images/home_arr.png" width={6} />
-            </Button>
+            <CustomButton
+              key={index}
+              text={text}
+              btnWidth={btnWidth}
+              height={55}
+              gap={6}
+            />
           ))}
         </Flex>
         {additionalImageSrc && (
-          <Image src={additionalImageSrc} width={additionalImageWidth} />
+          <StyledAddImage
+            src={additionalImageSrc}
+            width={additionalImageWidth}
+          />
         )}
       </StyledFlex>
-      {layout === 'right' && imgSrc && <Image src={imgSrc} width={imgWidth} />}
+      {layout === 'right' && imgSrc && (
+        <StyledImage src={imgSrc} width={imgWidth} />
+      )}
     </StyledFlexCenter>
   );
 };
