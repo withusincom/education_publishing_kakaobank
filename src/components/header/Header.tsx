@@ -13,6 +13,7 @@ const FlexContainer = styled(Flex)`
   border-bottom: 1px solid #e5e5e5;
   position: fixed;
   z-index: 1000;
+  min-width: 1200px;
 `;
 
 const StyledText = styled(Text)`
